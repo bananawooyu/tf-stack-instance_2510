@@ -6,6 +6,10 @@ required_providers {
     source  = "hashicorp/aws"
     version = "~> 6.14.1"
   }
+  terraform = {
+    source  = "terraform.io/builtin/terraform"
+    version = "~> 1.0"
+  }
 }
 
 provider "aws" "this" {
@@ -25,4 +29,8 @@ provider "aws" "this" {
       tags = var.default_tags
     }
   }
+}
+
+provider "terraform" "this" {
+  config {}
 }

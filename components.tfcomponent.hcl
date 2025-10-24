@@ -10,6 +10,10 @@ component "remote_state" {
     network_workspace = var.network_workspace
     region            = each.value
   }
+
+  providers = {
+    terraform = provider.terraform.this
+  }
 }
 
 component "instance" {
