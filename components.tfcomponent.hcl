@@ -13,7 +13,6 @@ component "remote_state" {
 
   providers = {
     terraform = provider.terraform.this
-    tfe       = provider.tfe.this
   }
 }
 

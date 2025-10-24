@@ -9,10 +9,6 @@ required_providers {
   terraform = {
     source = "terraform.io/builtin/terraform"
   }
-  tfe = {
-    source  = "hashicorp/tfe"
-    version = "~> 0.58.0"
-  }
 }
 
 provider "aws" "this" {
@@ -36,10 +32,4 @@ provider "aws" "this" {
 
 provider "terraform" "this" {
   config {}
-}
-
-provider "tfe" "this" {
-  config {
-    # Token will be automatically provided in TFC environment
-  }
 }
