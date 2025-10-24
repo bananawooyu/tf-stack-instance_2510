@@ -18,7 +18,7 @@ deployment "development" {
     access_key        = store.varset.aws_creds.AWS_ACCESS_KEY_ID
     secret_key        = store.varset.aws_creds.AWS_SECRET_ACCESS_KEY
     tfc_organization  = "rum-org-korean-air"
-    network_workspace = "tf-stack-network_2510-development"
+    network_workspace = "tf-stack-network_2510"
     default_tags = {
       Stack       = "tf-stack-instance_2510",
       Environment = "dev"
