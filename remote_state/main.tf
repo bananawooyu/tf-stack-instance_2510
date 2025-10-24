@@ -10,5 +10,6 @@ data "terraform_remote_state" "network" {
     workspaces = {
       name = var.network_workspace
     }
+    # Terraform Cloud token will be automatically provided in TFC environment
   }
 }
