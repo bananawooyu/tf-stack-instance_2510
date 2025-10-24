@@ -7,8 +7,7 @@ required_providers {
     version = "~> 6.14.1"
   }
   terraform = {
-    source  = "terraform.io/builtin/terraform"
-    version = "~> 1.0"
+    source = "terraform.io/builtin/terraform"
   }
 }
 
@@ -16,7 +15,7 @@ provider "aws" "this" {
   for_each = var.regions
 
   config {
-    region = each.value
+    region     = each.value
     access_key = var.access_key
     secret_key = var.secret_key
 
