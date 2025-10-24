@@ -6,15 +6,28 @@ variable "regions" {
   type        = set(string)
 }
 
-variable "identity_token" {
-  description = "Identity token for authentication."
+# variable "identity_token" {
+#   description = "Identity token for authentication."
+#   type        = string
+#   ephemeral   = true
+# }
+
+# variable "role_arn" {
+#   description = "ARN of role associated with identity token."
+#   type        = string
+# }
+
+variable "access_key" {
+  description = "AWS Access Key ID for authentication."
   type        = string
   ephemeral   = true
 }
 
-variable "role_arn" {
-  description = "ARN of role associated with identity token."
+variable "secret_key" {
+  description = "AWS Secret Access Key for authentication."
   type        = string
+  ephemeral   = true
+  sensitive   = true
 }
 
 variable "default_tags" {

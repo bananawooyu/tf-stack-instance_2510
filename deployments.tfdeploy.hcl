@@ -12,8 +12,8 @@ store "varset" "aws_creds" {
 
 deployment "development" {
   inputs = {
-    regions = ["ap-northeast-2"]
-    # role_arn              = "<YOUR_ROLE_ARN>"
+    regions = ["ap-northeast-1"]
+    # role_arn              = store.varset.aws_creds.AWS_ROLE_ARN
     # identity_token        = identity_token.aws.jwt
     access_key        = store.varset.aws_creds.AWS_ACCESS_KEY_ID
     secret_key        = store.varset.aws_creds.AWS_SECRET_ACCESS_KEY
@@ -26,18 +26,18 @@ deployment "development" {
   }
 }
 
-deployment "production" {
-  inputs = {
-    regions = ["ap-northeast-2"]
-    # role_arn              = "<YOUR_ROLE_ARN>"
-    # identity_token        = identity_token.aws.jwt
-    access_key        = store.varset.aws_creds.AWS_ACCESS_KEY_ID
-    secret_key        = store.varset.aws_creds.AWS_SECRET_ACCESS_KEY
-    tfc_organization  = "rum-org-korean-air"
-    network_workspace = "tf-stack-network_2510-production"
-    default_tags = {
-      Stack       = "tf-stack-instance_2510",
-      Environment = "prod"
-    }
-  }
-}
+# deployment "production" {
+#   inputs = {
+#     regions = ["ap-northeast-1"]
+#     # role_arn              = store.varset.aws_creds.AWS_ROLE_ARN
+#     # identity_token        = identity_token.aws.jwt
+#     access_key        = store.varset.aws_creds.AWS_ACCESS_KEY_ID
+#     secret_key        = store.varset.aws_creds.AWS_SECRET_ACCESS_KEY
+#     tfc_organization  = "rum-org-korean-air"
+#     network_workspace = "tf-stack-network_2510-production"
+#     default_tags = {
+#       Stack       = "tf-stack-instance_2510",
+#       Environment = "prod"
+#     }
+#   }
+# }
