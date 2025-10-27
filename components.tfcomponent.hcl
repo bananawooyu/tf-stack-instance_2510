@@ -19,14 +19,14 @@ component "instance" {
   }
 }
 
-output "instance_ids" {
-  type        = list(string)
-  description = "EC2 instance IDs"
-  value       = component.instance.instance_ids
-}
+# output "instance_ids" {
+#   type        = list(string)
+#   description = "EC2 instance IDs"
+#   value       = component.instance.instance_ids
+# }
 
-output "instance_private_dns" {
-  type        = list(string)
-  description = "EC2 instance Private DNS names"
-  value       = component.instance.private_dns
-}
+# output "instance_private_dns" {
+#   type        = list(string)
+#   description = "EC2 instance Private DNS names"
+#   value       = component.instance.private_dns
+# }
