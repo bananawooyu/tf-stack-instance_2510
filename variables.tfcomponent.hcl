@@ -39,12 +39,22 @@ variable "default_tags" {
   }
 }
 
-variable "tfc_organization" {
-  description = "Terraform Cloud organization name."
+variable "vpc_id" {
+  description = "network stack vpc id"
   type        = string
 }
 
-variable "network_workspace" {
-  description = "Network stack workspace name in TFC."
+variable "private_subnet_ids" {
+  description = "network stack private subnet ids"
+  type        = list(string)
+}
+
+variable "security_group_ids" {
+  description = "network stack security group ids"
+  type        = list(string)
+}
+
+variable "key_name" {
+  description = "network stack key name"
   type        = string
 }

@@ -10,6 +10,11 @@ store "varset" "aws_creds" {
   category = "env"
 }
 
+upstream_input "network_stack" {
+  type = "stack"
+  source = "app.terraform.io/hashicorp/jaehyeun/tf-stack-network_2510"
+}
+
 deployment "development" {
   inputs = {
     regions = ["ap-northeast-1"]
@@ -17,8 +22,12 @@ deployment "development" {
     # identity_token        = identity_token.aws.jwt
     access_key        = store.varset.aws_creds.AWS_ACCESS_KEY_ID
     secret_key        = store.varset.aws_creds.AWS_SECRET_ACCESS_KEY
-    tfc_organization  = "rum-org-korean-air"
-    network_workspace = "tf-stack-network_2510"
+    
+    vpc_id = upstream_input.network_stack.vpc_id
+    private_subnet_ids = upstream_input.network_stack.private_subnet_ids
+    security_group_ids = upstream_input.network_stack.security_group_ids
+    key_name = 
+
     default_tags = {
       Stack       = "tf-stack-instance_2510",
       Environment = "dev"
