@@ -23,10 +23,10 @@ deployment "development" {
     secret_key        = store.varset.aws_creds.AWS_SECRET_ACCESS_KEY
     
     # Network stack outputs (to be manually configured)
-    vpc_id = upstream_input.network_stack.vpc_id  # Replace with actual VPC ID from network stack
-    private_subnet_ids = upstream_input.network_stack.private_subnet_ids  # Replace with actual subnet IDs
-    security_group_ids = upstream_input.network_stack.security_group_ids  # Replace with actual security group ID
-    key_name = upstream_input.network_stack.key_name  # Key pair name
+    vpc_id = upstream_input.network_stack.networks_output.vpc_ids  # Replace with actual VPC ID from network stack
+    private_subnet_ids = upstream_input.network_stack.networks_output.private_subnet_ids  # Replace with actual subnet IDs
+    security_group_ids = upstream_input.network_stack.networks_output.security_group_ids  # Replace with actual security group ID
+    key_name = upstream_input.network_stack.key_names.networks_output.key_names  # Key pair name
 
     default_tags = {
       Stack       = "tf-stack-instance_2510",
