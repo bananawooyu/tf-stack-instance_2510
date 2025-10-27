@@ -10,23 +10,18 @@ store "varset" "aws_creds" {
   category = "env"
 }
 
-upstream_input "network_stack" {
-  type = "stack"
-  source = "app.terraform.io/hashicorp/jaehyeun/tf-stack-network_2510"
-}
-
 deployment "development" {
   inputs = {
-    regions = ["ap-northeast-1"]
     # role_arn              = store.varset.aws_creds.AWS_ROLE_ARN
     # identity_token        = identity_token.aws.jwt
     access_key        = store.varset.aws_creds.AWS_ACCESS_KEY_ID
     secret_key        = store.varset.aws_creds.AWS_SECRET_ACCESS_KEY
     
-    vpc_id = upstream_input.network_stack.vpc_id
-    private_subnet_ids = upstream_input.network_stack.private_subnet_ids
-    security_group_ids = upstream_input.network_stack.security_group_ids
-    key_name = 
+    # Network stack outputs (to be manually configured)
+    vpc_id = "vpc-xxxxxxxxx"  # Replace with actual VPC ID from network stack
+    private_subnet_ids = ["subnet-xxxxxxxxx", "subnet-yyyyyyyyy"]  # Replace with actual subnet IDs
+    security_group_ids = ["sg-xxxxxxxxx"]  # Replace with actual security group ID
+    key_name = "pjh-ssh-tokyo"  # Key pair name
 
     default_tags = {
       Stack       = "tf-stack-instance_2510",

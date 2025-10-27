@@ -2,8 +2,7 @@
 # SPDX-License-Identifier: MPL-2.0
 
 component "instance" {
-  source   = "./instance"
-  for_each = var.regions
+  source = "./instance"
 
   inputs = {
     network = {
@@ -16,6 +15,18 @@ component "instance" {
   }
 
   providers = {
-    aws = provider.aws.this[each.value]
+    aws = provider.aws.this
   }
+}
+
+output "instance_ids" {
+  type        = list(string)
+  description = "EC2 instance IDs"
+  value       = component.instance.instance_ids
+}
+
+output "instance_private_dns" {
+  type        = list(string)
+  description = "EC2 instance Private DNS names"
+  value       = component.instance.private_dns
 }
