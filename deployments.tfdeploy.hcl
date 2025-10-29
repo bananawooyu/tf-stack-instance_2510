@@ -10,6 +10,11 @@ store "varset" "aws_creds" {
   category = "env"
 }
 
+upstream_input "network_stack" {
+    type     = "stack"
+    source   = "app.terraform.io/rum-org-korean-air/jaehyeun/tf-stack-network_2510"
+}
+
 deployment "development" {
   inputs = {
     # role_arn              = store.varset.aws_creds.AWS_ROLE_ARN
@@ -18,20 +23,15 @@ deployment "development" {
     secret_key        = store.varset.aws_creds.AWS_SECRET_ACCESS_KEY
     
     # Network stack outputs (to be manually configured)
-    vpc_id = upstream_input.network_stack.networks_output.vpc_id 
+    vpc_id             = upstream_input.network_stack.networks_output.vpc_id 
     private_subnet_ids = upstream_input.network_stack.networks_output.private_subnet_ids
     security_group_ids = upstream_input.network_stack.networks_output.security_group_ids
-    key_name = upstream_input.network_stack.networks_output.key_name
+    key_name           = upstream_input.network_stack.networks_output.key_name
 
     default_tags = {
       Stack       = "tf-stack-instance_2510",
       Environment = "dev"
     }
-  }
-
-  upstream_input "network_stack" {
-    type     = "stack"
-    source   = "app.terraform.io/rum-org-korean-air/jaehyeun/tf-stack-network_2510"
   }
 }
 
