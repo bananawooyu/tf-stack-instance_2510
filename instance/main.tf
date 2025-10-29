@@ -24,7 +24,7 @@ resource "aws_instance" "private" {
   instance_type          = var.instance_type
   subnet_id              = var.network.private_subnet_ids[count.index % length(var.network.private_subnet_ids)]
   key_name               = var.key_name
-  vpc_security_group_ids = var.network.security_group_ids
+  vpc_security_group_ids = var.network.security_group_id
 
   tags = {
     createdby = "jaehyeun.park"

@@ -46,9 +46,9 @@ variable "private_subnet_ids" {
   type        = list(string)
 }
 
-variable "security_group_ids" {
+variable "security_group_id" {
   description = "network stack security group ids"
-  type        = list(string)
+  type        = string
 }
 
 variable "key_name" {

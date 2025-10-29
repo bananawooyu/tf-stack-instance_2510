@@ -25,7 +25,7 @@ deployment "development" {
     # Network stack outputs (to be manually configured)
     vpc_id             = upstream_input.network_stack.networks_output.vpc_id 
     private_subnet_ids = upstream_input.network_stack.networks_output.private_subnet_ids
-    security_group_ids = upstream_input.network_stack.networks_output.security_group_ids
+    security_group_id = upstream_input.network_stack.networks_output.security_group_ids
     key_name           = upstream_input.network_stack.networks_output.key_name
 
     default_tags = {
