@@ -28,11 +28,11 @@ deployment "development" {
       Environment = "dev"
     }
   }
+}
 
-  upstream_input "network_stack" {
-    type     = "stack"
-    source   = "app.terraform.io/rum-org-korean-air/jaehyeun/tf-stack-network_2510"
-  }
+upstream_input "network_stack" {
+  type     = "stack"
+  source   = "app.terraform.io/rum-org-korean-air/jaehyeun/tf-stack-network_2510"
 }
 
 # deployment "production" {
