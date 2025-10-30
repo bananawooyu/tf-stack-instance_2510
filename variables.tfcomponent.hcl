@@ -47,7 +47,7 @@ variable "private_subnet_ids" {
 }
 
 variable "security_group_id" {
-  description = "network stack security group ids"
+  description = "network stack security group id"
   type        = string
 }
 
